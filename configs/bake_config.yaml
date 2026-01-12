@@ -1,0 +1,76 @@
+version: "1.0"
+
+# Repository configuration
+repository:
+  name: "rag-expert-model"
+  description: "AI Solutions Architect with RAG/Vector DB expertise baked in"
+
+# Prompts to bake into the model
+prompts:
+  - name: "expert_system_prompt"
+    prompt_file: "./expert_system_prompt.txt"
+    weight: 1.0
+    description: "Core expertise in RAG systems and vector databases"
+
+# Data generation configuration
+generators:
+  # Stim generation: Create diverse user queries
+  stim:
+    model: "gpt-4"
+    temperature: 0.8
+    num_samples: 100
+    diversity_penalty: 0.3
+    topics:
+      - "vector database architecture questions"
+      - "RAG system design problems"
+      - "embedding model selection"
+      - "production deployment challenges"
+      - "performance optimization scenarios"
+      - "hybrid search strategies"
+      - "cost optimization questions"
+    
+  # Rollout: Get expert responses with system prompt
+  rollout:
+    model: "gpt-4"
+    temperature: 0.7
+    max_tokens: 1000
+    use_system_prompt: true
+
+# Baking configuration
+bake:
+  base_model: "gpt-4"
+  method: "weight-space-editing"
+  
+  # Training parameters
+  parameters:
+    learning_rate: 1e-5
+    batch_size: 8
+    epochs: 3
+    warmup_steps: 10
+    gradient_accumulation_steps: 2
+    
+  # Behavioral constraints
+  constraints:
+    preserve_general_capabilities: true
+    max_parameter_change: 0.05
+    validation_threshold: 0.95
+    
+  # Evaluation
+  evaluation:
+    holdout_size: 0.2
+    metrics:
+      - "response_similarity"
+      - "expertise_preservation"
+      - "general_capability_retention"
+
+# Output configuration
+output:
+  model_name: "rag-expert-baked-v1"
+  format: "gguf"
+  quantization: "fp16"
+  
+# Versioning
+git:
+  commit_message: "Bake RAG expertise into model weights"
+  branch: "main"
+  tag: "v1.0-rag-expert"

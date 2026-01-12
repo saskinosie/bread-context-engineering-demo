@@ -1,0 +1,29 @@
+# Core dependencies
+openai>=1.0.0
+anthropic>=0.18.0
+
+# Bread AI SDK (when available)
+# bread-ai>=0.1.0  # Placeholder - check actual package name
+
+# Data handling
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Notebook support
+jupyter>=1.0.0
+ipykernel>=6.0.0
+
+# Utilities
+python-dotenv>=1.0.0
+pyyaml>=6.0
+requests>=2.31.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Vector database (optional for RAG demo)
+weaviate-client>=3.0.0
+
+# Testing
+pytest>=7.0.0
