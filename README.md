@@ -58,9 +58,9 @@ response = baked_model.chat(
 ```
 bread-context-engineering-demo/
 ├── demos/
-│   ├── 01_traditional_approach.py    # Baseline: traditional system prompts
-│   ├── 02_bread_baking_setup.py      # How to bake a prompt with Bread AI
-│   └── 03_baked_inference.py         # Using the baked model
+│   ├── 01_traditional_approach.ipynb # Baseline: traditional system prompts
+│   ├── 02_bread_baking_setup.ipynb   # How to bake a prompt with Bread AI
+│   └── 03_baked_inference.ipynb      # Using the baked model
 ├── configs/
 │   ├── expert_system_prompt.txt      # The prompt we'll bake
 │   └── bake_config.yaml              # Bread AI bake configuration
@@ -79,30 +79,21 @@ bread-context-engineering-demo/
 ```bash
 # Python 3.9+
 pip install -r requirements.txt
-
-# Get Bread AI API key
-# Sign up at https://www.aibread.com
-export BREAD_API_KEY="your-api-key-here"
 ```
 
 ### Run the Demo
 
-```bash
-# 1. See traditional approach (verbose system prompts)
-python demos/01_traditional_approach.py
-
-# 2. Bake the system prompt into model weights
-python demos/02_bread_baking_setup.py
-
-# 3. Use the baked model (zero system prompt tokens!)
-python demos/03_baked_inference.py
-```
-
-### Interactive Notebook
+The demo uses mock clients to illustrate the concept - no API keys required.
 
 ```bash
-jupyter notebook notebooks/full_demo.ipynb
+# Open the demo notebooks
+jupyter notebook demos/
 ```
+
+Run in order:
+1. `01_traditional_approach.ipynb` - See the problem (token overhead)
+2. `02_bread_baking_setup.ipynb` - See how baking works
+3. `03_baked_inference.ipynb` - See the results (zero system tokens)
 
 ## 📊 Results
 
