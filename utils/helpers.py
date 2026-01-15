@@ -12,9 +12,13 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def load_system_prompt(filepath: str = "../configs/expert_system_prompt.txt") -> str:
+def load_system_prompt(filepath: str = None) -> str:
     """Load the expert system prompt from file"""
-    prompt_path = Path(__file__).parent / filepath
+    if filepath is None:
+        # Default: configs/expert_system_prompt.txt relative to project root
+        prompt_path = Path(__file__).parent.parent / "configs" / "expert_system_prompt.txt"
+    else:
+        prompt_path = Path(filepath)
     with open(prompt_path, 'r') as f:
         return f.read()
 
